@@ -1,10 +1,10 @@
 package kodlama.io.rentACar.business.abstracts;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import kodlama.io.rentACar.entities.concretes.Brand;
 
 public interface BrandService {
-     public ArrayList<Brand> getAll();
+     public List<Brand> getAll();
     
 }
