@@ -21,12 +21,12 @@ import lombok.Setter;
 @Entity
 public class Brand {
 
-    @Id //pk
+    @Id // pk
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     /*
