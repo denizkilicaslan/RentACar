@@ -1,6 +1,5 @@
 package kodlama.io.rentACar.business.concretes;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +23,7 @@ public class BrandManager implements BrandService {
 
     @Override
     public List<Brand> getAll() {
-        return  brandRepository.getAll();
+        return  brandRepository.findAll();
     }
     
 }
