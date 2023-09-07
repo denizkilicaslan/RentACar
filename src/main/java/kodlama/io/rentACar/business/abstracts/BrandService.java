@@ -9,4 +9,5 @@ public interface BrandService {
      public List<GetAllBrandsResponse> getAll();
      void add(CreateBrandRequest createBrandRequest);
 
+     // delete,update, id ye göre brand getirme 
 }
