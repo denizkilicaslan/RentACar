@@ -7,23 +7,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-// import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "brands")
-// @Data
+@Table(name = "models")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Brand {
-
+public class Model {
+ 
     @Id // pk
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -31,35 +31,14 @@ public class Brand {
 
     @Column(name = "name")
     private String name;
-    
-    @OneToMany(mappedBy = "brand")
-     private List<Model> models;
 
-    /*
-     * public Brand() {
-     * }
-     * 
-     * public Brand(int id, String name) {
-     * this.id = id;
-     * this.name = name;
-     * }
-     * 
-     * public int getId() {
-     * return id;
-     * }
-     * 
-     * public void setId(int id) {
-     * this.id = id;
-     * }
-     * 
-     * public String getName() {
-     * return name;
-     * }
-     * 
-     * public void setName(String name) {
-     * this.name = name;
-     * }
-     * 
-     */
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
+    //ManyToMany ilişkisi biraz sıkıntılıymıs 
+    //standartlara uyma ve verı kacaklarına uyma noktasında zaafiyetlerı varmıs 
+
+    @OneToMany(mappedBy = "model") // veri tekrarı veri kacagına sebep olur 
+     private List<Car> cars;
 }
