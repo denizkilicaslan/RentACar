@@ -27,7 +27,7 @@ public class ModelManager implements ModelService {
 
         List<GetAllModelsResponse> modelsResponses = models.stream()
                 .map(model -> this.modelMapperService.forResponse()
-                        .map(models, GetAllModelsResponse.class))
+                        .map(model, GetAllModelsResponse.class))
                 .collect(Collectors.toList());
 
         return modelsResponses;
@@ -40,4 +40,5 @@ public class ModelManager implements ModelService {
         this.modelRepository.save(model);
     }
 
+    // mapper ların hepsı duzgun calısmaz arada kendın ekleme yapabılırsın 
 }
