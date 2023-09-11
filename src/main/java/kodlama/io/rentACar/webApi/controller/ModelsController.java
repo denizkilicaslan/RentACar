@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import kodlama.io.rentACar.business.abstracts.ModelService;
 import kodlama.io.rentACar.business.requests.CreateModelRequest;
 import kodlama.io.rentACar.business.responses.GetAllModelsResponse;
@@ -33,7 +34,7 @@ public class ModelsController {
     
     @PostMapping(value="/add")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public void add(@RequestBody CreateModelRequest createModelRequest) {
+    public void add(@RequestBody  @Valid() CreateModelRequest createModelRequest) {
         this.modelService.add(createModelRequest);
     }
     
