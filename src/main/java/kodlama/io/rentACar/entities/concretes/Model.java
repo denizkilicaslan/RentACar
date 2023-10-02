@@ -36,9 +36,6 @@ public class Model {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    //ManyToMany ilişkisi biraz sıkıntılıymıs 
-    //standartlara uyma ve verı kacaklarına uyma noktasında zaafiyetlerı varmıs 
-
-    @OneToMany(mappedBy = "model") // veri tekrarı veri kacagına sebep olur 
+    @OneToMany(mappedBy = "model")
      private List<Car> cars;
 }

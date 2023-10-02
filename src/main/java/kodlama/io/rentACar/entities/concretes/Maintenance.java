@@ -1,7 +1,6 @@
 package kodlama.io.rentACar.entities.concretes;
 
 import jakarta.persistence.*;
-import kodlama.io.rentACar.core.utilities.MaintenanceState;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,12 +20,12 @@ public  class Maintenance {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "car_id")
+    //@Column(name = "car_id")
     @OneToMany(mappedBy ="maintenance")
     private List<Car> cars;
 
-    @Enumerated(EnumType.STRING)
+   // @Enumerated(EnumType.STRING)
     @Column(name = "state")
-    private MaintenanceState state;
+    private int state;
 
 }
