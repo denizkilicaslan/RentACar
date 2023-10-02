@@ -34,8 +34,9 @@ public class Car {
     @Column(name = "modelYear")
     private int modelYear;
 
-    @Column(name = "state")
-    private int state; // 1-available 2-rented 3-maintence
+    @ManyToOne()
+    @JoinColumn(name = "maintenance_id")
+    private Maintenance maintenance; // 1-available 2-rented 3-maintence
 
     @ManyToOne
     @JoinColumn(name = "model_id")
