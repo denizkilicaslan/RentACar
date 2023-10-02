@@ -10,7 +10,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GetAllCarResponse {
     private int id;
-    private String name;
+
+    private String plate;
+
+    private double dailyPrice;
+
+    private int modelYear;
+
+    private int state; // 1-available 2-rented 3-maintence
+
+    private int modelId;
 
 
 }
