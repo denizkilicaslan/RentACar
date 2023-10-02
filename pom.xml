@@ -35,9 +35,14 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.postgresql</groupId>-->
+<!--			<artifactId>postgresql</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -60,6 +65,7 @@
 			<artifactId>modelmapper</artifactId> 
 			<version>3.1.1</version> 
 		</dependency>
+
 	</dependencies>
 
 	<build>

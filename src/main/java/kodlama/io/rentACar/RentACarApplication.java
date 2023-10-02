@@ -55,4 +55,5 @@ public class RentACarApplication {
 	public ModelMapper getModelMApper() {
 		return new ModelMapper();
 	}
+
 }
