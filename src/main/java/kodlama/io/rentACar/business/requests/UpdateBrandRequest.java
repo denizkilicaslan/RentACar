@@ -14,7 +14,6 @@ public class UpdateBrandRequest {
 
     @NotNull
     @NotBlank
-    @Size(min = 3, max = 20)
     private int id;
 
     @NotNull

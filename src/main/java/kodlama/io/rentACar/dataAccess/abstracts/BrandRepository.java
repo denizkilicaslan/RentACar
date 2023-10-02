@@ -7,7 +7,7 @@ import kodlama.io.rentACar.entities.concretes.Brand;
 
 //Dao 
 // @Repository
-public interface BrandRepository extends JpaRepository<Brand, Integer> {
+public interface BrandRepository extends JpaRepository<Brand,Integer> {
 
     // List<Brand> getAll();
     boolean existsByName(String name); //spring jpa keywords 

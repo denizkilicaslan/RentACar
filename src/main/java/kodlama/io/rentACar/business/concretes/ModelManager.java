@@ -3,6 +3,8 @@ package kodlama.io.rentACar.business.concretes;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import kodlama.io.rentACar.business.requests.UpdateCarRequest;
+import kodlama.io.rentACar.business.responses.GetByIdCarResponse;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.rentACar.business.abstracts.ModelService;
@@ -40,5 +42,5 @@ public class ModelManager implements ModelService {
         this.modelRepository.save(model);
     }
 
-    // mapper ların hepsı duzgun calısmaz arada kendın ekleme yapabılırsın 
+
 }
