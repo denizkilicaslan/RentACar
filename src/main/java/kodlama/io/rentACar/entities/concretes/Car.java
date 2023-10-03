@@ -29,14 +29,6 @@ public class Car {
     @Column(name = "modelYear")
     private int modelYear;
 
-//    @ManyToOne()
-//    @JoinColumn(name = "maintenance_id")
-//    private Maintenance maintenance; // 1-available 2-rented 3-maintence
-
-    @ManyToOne
-    @JoinColumn(name = "model_id")
-    private Model model;
-
     @Column(name = "state")
     private int state;
 
@@ -44,4 +36,14 @@ public class Car {
     @OneToMany(mappedBy = "car")
     private List<Maintenance> maintenanceList;
 
+    @OneToMany(mappedBy = "car")
+    private List<Rental> rentalList;
+
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    private Model model;
+
+    //    @ManyToOne()
+    //    @JoinColumn(name = "maintenance_id")
+    //    private Maintenance maintenance; // 1-available 2-rented 3-maintence
 }

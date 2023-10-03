@@ -13,7 +13,7 @@ public class CarBusinessRules {
 
     public void checkIfCarPlateExists(String plate) {
         if (this.carRepository.existsByPlate(plate)) {
-            throw new BusinessException("Car plate  already exist");// java exception types
+            throw new BusinessException("Car plate already exist");// java exception types
         }
     }
 }
