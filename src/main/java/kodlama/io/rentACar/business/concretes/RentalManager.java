@@ -50,16 +50,20 @@ public class RentalManager implements RentalService {
 
     @Override
     public GetByIdRentalsResponse getById(int id) {
-        return null;
+        Rental rental = rentalRepository.findById(id).orElseThrow();
+        GetByIdRentalsResponse getByIdRentalsResponse = modelMapperService.forResponse()
+                .map(rental, GetByIdRentalsResponse.class);
+        return getByIdRentalsResponse;
     }
 
     @Override
     public void delete(int id) {
-
+        rentalRepository.deleteById(id);
     }
 
     @Override
     public void update(UpdateRentalRequest updateRentalRequest) {
-
+        Rental rentals = modelMapperService.forRequest().map(updateRentalRequest, Rental.class);
+        rentalRepository.save(rentals);
     }
 }
