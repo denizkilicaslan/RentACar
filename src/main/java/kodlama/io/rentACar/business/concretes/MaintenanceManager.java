@@ -13,6 +13,7 @@ import kodlama.io.rentACar.entities.concretes.Car;
 import kodlama.io.rentACar.entities.concretes.Maintenance;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,14 +34,15 @@ public class MaintenanceManager implements MaintenanceService {
         return responses;
     }
 
+    @Transactional
     @Override
     public void add(CreateMaintenanceRequest createMaintenanceRequest) {
         Maintenance maintenance = this.modelMapperService.forRequest().map(createMaintenanceRequest, Maintenance.class);
-        Car car=carRepository.findById(createMaintenanceRequest.getCarId()).orElseThrow();
-        car.setState(1);
         this.maintenanceRepository.save(maintenance);
 
-
+        Car car = carRepository.findById(createMaintenanceRequest.getCarId()).orElseThrow();
+        car.setState(3);
+        this.carRepository.save(car);
     }
 
     @Override
@@ -55,23 +57,17 @@ public class MaintenanceManager implements MaintenanceService {
         this.maintenanceRepository.deleteById(id);
     }
 
+    @Transactional
     @Override
     public void update(UpdateMaintenanceRequest updateMaintenanceRequest) {
         Maintenance maintenance = this.modelMapperService.forRequest().map(updateMaintenanceRequest, Maintenance.class);
-        Car car=carRepository.findById(updateMaintenanceRequest.getCarId()).orElseThrow();
-        car.setState(2);
+        //maintenance.setId(); ctrl et mapper hata verebiliyo
         this.maintenanceRepository.save(maintenance);
+
+        Car car = carRepository.findById(updateMaintenanceRequest.getCarId()).orElseThrow();
+        car.setState(1);
+        this.carRepository.save(car);
 
     }
 
-//    public void parseEnum(String status){
-//        /*
-//          MaintenanceStatus status = MaintenanceStatus.valueOf(createCarRequest.getMaintanence());
-//        car.setStatus(status);
-//        this.carRepository.save(car);
-//    }
-//         */
-//        MaintenanceState state = MaintenanceState.valueOf(status);
-//
-//    }
 }

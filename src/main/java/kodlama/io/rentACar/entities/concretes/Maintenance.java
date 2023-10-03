@@ -21,7 +21,7 @@ public class Maintenance {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "startDate")
+    @Column(name = "startDate",updatable = false)
     private Date startDate;
 
     @Column(name = "returnDate")
