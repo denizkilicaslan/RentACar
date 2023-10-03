@@ -1,12 +1,15 @@
 package kodlama.io.rentACar.business.concretes;
 
+import kodlama.io.rentACar.business.abstracts.CarService;
 import kodlama.io.rentACar.business.abstracts.MaintenanceService;
 import kodlama.io.rentACar.business.requests.CreateMaintenanceRequest;
 import kodlama.io.rentACar.business.requests.UpdateMaintenanceRequest;
 import kodlama.io.rentACar.business.responses.GetAllMaintenanceResponse;
 import kodlama.io.rentACar.business.responses.GetByIdMaintenanceResponse;
 import kodlama.io.rentACar.core.utilities.mappers.ModelMapperService;
+import kodlama.io.rentACar.dataAccess.abstracts.CarRepository;
 import kodlama.io.rentACar.dataAccess.abstracts.MaintenanceRepository;
+import kodlama.io.rentACar.entities.concretes.Car;
 import kodlama.io.rentACar.entities.concretes.Maintenance;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,7 @@ public class MaintenanceManager implements MaintenanceService {
 
     private MaintenanceRepository maintenanceRepository;
     private ModelMapperService modelMapperService;
+    private CarRepository carRepository;
 
     @Override
     public List<GetAllMaintenanceResponse> getAll() {
@@ -32,6 +36,8 @@ public class MaintenanceManager implements MaintenanceService {
     @Override
     public void add(CreateMaintenanceRequest createMaintenanceRequest) {
         Maintenance maintenance = this.modelMapperService.forRequest().map(createMaintenanceRequest, Maintenance.class);
+        Car car=carRepository.findById(createMaintenanceRequest.getCarId()).orElseThrow();
+        car.setState(1);
         this.maintenanceRepository.save(maintenance);
 
 
@@ -52,6 +58,8 @@ public class MaintenanceManager implements MaintenanceService {
     @Override
     public void update(UpdateMaintenanceRequest updateMaintenanceRequest) {
         Maintenance maintenance = this.modelMapperService.forRequest().map(updateMaintenanceRequest, Maintenance.class);
+        Car car=carRepository.findById(updateMaintenanceRequest.getCarId()).orElseThrow();
+        car.setState(2);
         this.maintenanceRepository.save(maintenance);
 
     }

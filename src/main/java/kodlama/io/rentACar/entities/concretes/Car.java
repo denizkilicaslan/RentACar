@@ -1,17 +1,12 @@
 package kodlama.io.rentACar.entities.concretes;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Table(name = "cars")
 @Getter
@@ -34,12 +29,19 @@ public class Car {
     @Column(name = "modelYear")
     private int modelYear;
 
-    @ManyToOne()
-    @JoinColumn(name = "maintenance_id")
-    private Maintenance maintenance; // 1-available 2-rented 3-maintence
+//    @ManyToOne()
+//    @JoinColumn(name = "maintenance_id")
+//    private Maintenance maintenance; // 1-available 2-rented 3-maintence
 
     @ManyToOne
     @JoinColumn(name = "model_id")
     private Model model;
+
+    @Column(name = "state")
+    private int state;
+
+    //?
+    @OneToMany(mappedBy = "car")
+    private List<Maintenance> maintenanceList;
 
 }
