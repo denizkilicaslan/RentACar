@@ -33,4 +33,11 @@ public class Rental {
 
     @Column(name = "paid")
     boolean paid = false;
+
+    @ManyToOne()
+    @JoinColumn(name="rental_id")
+    private BaseCustomer baseCustomer;
+
+
+
 }
