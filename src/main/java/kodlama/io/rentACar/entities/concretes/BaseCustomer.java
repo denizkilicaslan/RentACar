@@ -32,7 +32,7 @@ public class BaseCustomer {
     @Column(name="phoneNumber")
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "baseCustomer_id")
+    @OneToMany(mappedBy = "baseCustomer")
     private List<Rental> rentalList;
 
 }
