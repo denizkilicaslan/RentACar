@@ -23,8 +23,6 @@ public class RentalManager implements RentalService {
 
     private RentalRepository rentalRepository;
     private ModelMapperService modelMapperService;
-    private PaymentRepository paymentRepository;
-    private BankService bankService;
     private RentalBusinessRules rentalBusinessRules;
 
     @Override
@@ -45,7 +43,6 @@ public class RentalManager implements RentalService {
             Rental rental = modelMapperService.forRequest().map(createRentalRequest, Rental.class);
             rentalRepository.save(rental);
         }
-
     }
 
     @Override
