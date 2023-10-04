@@ -26,13 +26,13 @@ public class ModelsController {
 
     private ModelService modelService;
 
-    @GetMapping(value="")
+    @GetMapping()
     public List<GetAllModelsResponse> getAll() {
         return modelService.getAll();
     }
 
     
-    @PostMapping(value="/add")
+    @PostMapping()
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody  @Valid() CreateModelRequest createModelRequest) {
         this.modelService.add(createModelRequest);

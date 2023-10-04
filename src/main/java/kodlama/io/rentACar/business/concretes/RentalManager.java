@@ -1,6 +1,5 @@
 package kodlama.io.rentACar.business.concretes;
 
-import kodlama.io.rentACar.business.abstracts.BankService;
 import kodlama.io.rentACar.business.abstracts.RentalService;
 import kodlama.io.rentACar.business.requests.CreateRentalRequest;
 import kodlama.io.rentACar.business.requests.UpdateRentalRequest;
@@ -8,7 +7,6 @@ import kodlama.io.rentACar.business.responses.GetAllRentalsResponse;
 import kodlama.io.rentACar.business.responses.GetByIdRentalsResponse;
 import kodlama.io.rentACar.business.rules.RentalBusinessRules;
 import kodlama.io.rentACar.core.utilities.mappers.ModelMapperService;
-import kodlama.io.rentACar.dataAccess.abstracts.PaymentRepository;
 import kodlama.io.rentACar.dataAccess.abstracts.RentalRepository;
 import kodlama.io.rentACar.entities.concretes.Rental;
 import lombok.AllArgsConstructor;

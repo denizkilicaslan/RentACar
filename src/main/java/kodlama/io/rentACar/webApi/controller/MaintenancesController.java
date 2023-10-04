@@ -18,7 +18,7 @@ import java.util.List;
 public class MaintenancesController {
     private MaintenanceService maintenanceService;
 
-    @GetMapping("")
+    @GetMapping()
     public List<GetAllMaintenanceResponse> getAll(){
         return this.maintenanceService.getAll();
     }
@@ -28,13 +28,13 @@ public class MaintenancesController {
         return this.maintenanceService.getById(id);
     }
     
-    @PostMapping("/add")
+    @PostMapping()
     @ResponseStatus(code= HttpStatus.CREATED)
     public void add(@RequestBody CreateMaintenanceRequest createMaintenanceRequest){
         this.maintenanceService.add(createMaintenanceRequest);
     }
 
-    @PutMapping("/update")
+    @PutMapping()
     @ResponseStatus(code= HttpStatus.CREATED)
     public void update(@RequestBody UpdateMaintenanceRequest updateMaintenanceRequest){
         this.maintenanceService.update(updateMaintenanceRequest);

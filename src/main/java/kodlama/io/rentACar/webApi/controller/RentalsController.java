@@ -34,7 +34,7 @@ public class RentalsController {
         return rentalService.getById(id);
     }
 
-    @PutMapping(value = "path/{id}")
+    @PutMapping(value = "/{id}")
     public void update(@RequestBody UpdateRentalRequest updateRentalRequest){
         rentalService.update(updateRentalRequest);
     }
