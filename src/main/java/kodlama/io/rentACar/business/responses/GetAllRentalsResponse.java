@@ -20,6 +20,8 @@ public class GetAllRentalsResponse {
     private Date startedDate;
 
     private String plate;
-    
+
     private boolean paid;
+
+    private int customerId;
 }
