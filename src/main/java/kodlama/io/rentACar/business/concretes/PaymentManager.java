@@ -34,6 +34,7 @@ public class PaymentManager implements PaymentService {
 
             Rental rental = rentalRepository.findById(createPaymentRequest.getRentalId()).orElseThrow();
             rental.setPaid(true);
+            rental.getCar().setState(2);
             rentalRepository.save(rental);
         } else {
             throw new BusinessException("Payment could not be received");
