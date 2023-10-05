@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 public class CreateModelRequest {
 
     @NotNull
