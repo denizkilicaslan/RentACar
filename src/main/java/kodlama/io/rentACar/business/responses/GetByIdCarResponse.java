@@ -19,4 +19,6 @@ public class GetByIdCarResponse {
     private int state; // 1-available 2-rented 3-maintence
 
     private int modelId;
+
+    private  String imgUrl;
 }

@@ -1,17 +1,15 @@
-package kodlama.io.rentACar.business.requests;
+package kodlama.io.rentACar.business.responses;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import kodlama.io.rentACar.entities.concretes.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateCarRequest {
+@Data
+public class GetAllCarByBrandId {
+    private int id;
+
     private String plate;
 
     private double dailyPrice;
@@ -21,6 +19,8 @@ public class CreateCarRequest {
     private int state; // 1-available 2-rented 3-maintence
 
     private int modelId;
+
+    private String modelName;
 
     private  String imgUrl;
 }

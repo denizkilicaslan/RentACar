@@ -21,5 +21,7 @@ public class GetAllCarResponse {
 
     private int modelId;
 
+    private  String imgUrl;
+
 
 }

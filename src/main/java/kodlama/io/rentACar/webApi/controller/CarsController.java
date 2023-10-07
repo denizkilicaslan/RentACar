@@ -5,6 +5,7 @@ import kodlama.io.rentACar.business.requests.CreateCarRequest;
 import kodlama.io.rentACar.business.requests.UpdateBrandRequest;
 import kodlama.io.rentACar.business.requests.UpdateCarRequest;
 import kodlama.io.rentACar.business.responses.GetAllBrandsResponse;
+import kodlama.io.rentACar.business.responses.GetAllCarByBrandId;
 import kodlama.io.rentACar.business.responses.GetAllCarResponse;
 import kodlama.io.rentACar.business.responses.GetByIdCarResponse;
 import lombok.AllArgsConstructor;
@@ -41,6 +42,11 @@ public class CarsController {
     @DeleteMapping(value="/{id}")
     public void delete(@PathVariable int id) {
         carService.delete(id);
+    }
+
+    @GetMapping("/brandId/{id}")
+    public List<GetAllCarByBrandId> getAllCarByBrandId(@PathVariable int id){
+        return this.carService.getAllCarByBrandId(id);
     }
 
 }

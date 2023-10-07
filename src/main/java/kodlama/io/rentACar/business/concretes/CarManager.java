@@ -3,6 +3,7 @@ package kodlama.io.rentACar.business.concretes;
 import kodlama.io.rentACar.business.abstracts.CarService;
 import kodlama.io.rentACar.business.requests.CreateCarRequest;
 import kodlama.io.rentACar.business.requests.UpdateCarRequest;
+import kodlama.io.rentACar.business.responses.GetAllCarByBrandId;
 import kodlama.io.rentACar.business.responses.GetAllCarResponse;
 import kodlama.io.rentACar.business.responses.GetByIdBrandResponse;
 import kodlama.io.rentACar.business.responses.GetByIdCarResponse;
@@ -60,4 +61,15 @@ public class CarManager implements CarService {
        GetByIdCarResponse response = this.modelMapperService.forResponse().map(car, GetByIdCarResponse.class);
         return response;
     }
+
+    @Override
+    public List<GetAllCarByBrandId> getAllCarByBrandId(int id) {
+        List<Car> cars= this.carRepository.findCarsByModel_Brand_Id(id);
+        List<GetAllCarByBrandId> carResponses = cars.stream().map(car ->
+                        this.modelMapperService.forResponse().map(car, GetAllCarByBrandId.class)).
+                collect(Collectors.toList());
+        return carResponses;
+    }
+
+
 }
