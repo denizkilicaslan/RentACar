@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import kodlama.io.rentACar.core.utilities.exceptions.BusinessException;
 import kodlama.io.rentACar.core.utilities.exceptions.ProblemDetails;
 import kodlama.io.rentACar.core.utilities.exceptions.ValidationProblemDetails;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 @RestControllerAdvice // tüm ctrller exceptionHandler a tabi
@@ -56,6 +58,20 @@ public class RentACarApplication {
 	@Bean
 	public ModelMapper getModelMApper() {
 		return new ModelMapper();
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**")
+						.allowedOrigins("http://localhost:4200")
+						.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+						.allowedHeaders("*")
+						.allowCredentials(true);
+			}
+		};
 	}
 
 }
